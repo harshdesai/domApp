@@ -29,12 +29,6 @@ namespace SampleApp.BLL.Repository
             patientFromDB.PhoneNumber = patientFromDB.PhoneNumber;
             patientFromDB.Email = patientFromDB.Email;
             patientFromDB.CatagoryId = patientFromDB.CatagoryId;
-            patientFromDB.Infertility = patientFromDB.Infertility;
-            patientFromDB.HighReskPregnancy = patientFromDB.HighReskPregnancy;
-            patientFromDB.MedicalFertilityPreservation = patientFromDB.MedicalFertilityPreservation;
-            patientFromDB.GeneticsPediatric = patientFromDB.GeneticsPediatric;
-            patientFromDB.Insurance = patientFromDB.Insurance;
-            patientFromDB.Adoption = patientFromDB.Adoption;
             patientFromDB.ApplicationStatusID = patientFromDB.ApplicationStatusID;
             patientFromDB.Active = true;//patientFromDB.Active;
             patientFromDB.Denied = false;//patientFromDB.Denied;

@@ -22,12 +22,6 @@ namespace SampleApp.Entity
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public Nullable<int> CatagoryId { get; set; }
-        public string Infertility { get; set; }
-        public string HighReskPregnancy { get; set; }
-        public string MedicalFertilityPreservation { get; set; }
-        public string GeneticsPediatric { get; set; }
-        public string Insurance { get; set; }
-        public string Adoption { get; set; }
         public Nullable<int> ApplicationStatusID { get; set; }
         public Nullable<bool> Active { get; set; }
         public Nullable<bool> Denied { get; set; }

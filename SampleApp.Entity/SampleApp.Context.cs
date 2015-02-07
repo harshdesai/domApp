@@ -25,11 +25,11 @@ namespace SampleApp.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<ApplicationStatu> ApplicationStatus { get; set; }
-        public DbSet<Catagory> Catagories { get; set; }
-        public DbSet<Patient> Patients { get; set; }
         public DbSet<SendVia> SendVias { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ApplicationStatu> ApplicationStatus { get; set; }
+        public DbSet<Catagory> Catagories { get; set; }
+        public DbSet<Patient> Patients { get; set; }
     }
 }

@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2079,6 +2080,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

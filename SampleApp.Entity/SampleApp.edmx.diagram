@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b072dbbcc062415d895c866c9cdefd8c" Name="Diagram1">
-        <EntityTypeShape EntityType="SampleAppModel.ApplicationStatu" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SampleAppModel.Catagory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SampleAppModel.Patient" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SampleAppModel.SendVia" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SampleAppModel.Task" Width="1.5" PointX="8" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SampleAppModel.User" Width="1.5" PointX="5.75" PointY="5.875" IsExpanded="true" />
-        <AssociationConnector Association="SampleAppModel.FK_Patients_ApplicationStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="SampleAppModel.FK_Patients_Catagory" ManuallyRouted="false" />
         <AssociationConnector Association="SampleAppModel.FK_Tasks_SendVia" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="SampleAppModel.ApplicationStatu" Width="1.5" PointX="2.1021652343227366" PointY="25.862429317954195" />
+        <EntityTypeShape EntityType="SampleAppModel.Catagory" Width="1.5" PointX="8.0117029212469717" PointY="10.711687450628583" />
+        <EntityTypeShape EntityType="SampleAppModel.Patient" Width="1.5" PointX="1.2825225485873049" PointY="5.3877204234654643" />
+        <AssociationConnector Association="SampleAppModel.FK_Patients_ApplicationStatus" />
+        <AssociationConnector Association="SampleAppModel.FK_Patients_Catagory" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

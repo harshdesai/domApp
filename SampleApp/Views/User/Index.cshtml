@@ -1,14 +1,11 @@
-﻿@model List<SampleApp.Entity.Patient>
+﻿@model List<SampleApp.Entity.User>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
 <script>
     $(document).ready(function () {
-        $("#patient").addClass("active")
+        $("#adminUser").addClass("active")
 
         $(".delete").click(function (e) {
             var result = confirm("Are you Want to Delete Actor?");
@@ -23,8 +20,8 @@
         );
     });
 
-    function newPatient() {
-        window.location.href = "/Home/Create";
+    function newUser() {
+        window.location.href = "/User/Create";
     }
 </script>
 <div class="row-fluid">
@@ -32,12 +29,12 @@
         <div class="box box-color box-bordered">
             <div class="box-title">
                 <h3>
-                    <i class="icon-table"></i>Pateint List
+                    <i class="icon-table"></i>User List
 				</h3>
                 <div class="actions">
-                    <a class="btn" href="#" onclick="newPatient()">
+                    <a class="btn" href="#" onclick="newUser()">
                         <i class="icon-plus-sign"></i>
-                        Add Patient
+                        Add User
                     </a>
                 </div>
             </div>
@@ -54,7 +51,7 @@
                                         @Html.DisplayNameFor(model => model[0].LastName)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model[0].WifeFirstName)
+                                        @Html.DisplayNameFor(model => model[0].Phone)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model[0].Email)
@@ -73,14 +70,14 @@
                                             @Html.DisplayFor(modelItem => modelItem[i].LastName)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => modelItem[i].WifeFirstName)
+                                            @Html.DisplayFor(modelItem => modelItem[i].Phone)
                                         </td>
                                         <td style="width: 500px;">
                                             @Html.DisplayFor(modelItem => modelItem[i].Email)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Edit", "Create", new { id = Model[i].PatientID }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = Model[i].PatientID }, new { @class = "delete" })
+                                            @Html.ActionLink("Edit", "Create", new { id = Model[i].UserID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = Model[i].UserID }, new { @class = "delete" })
                                         </td>
                                     </tr>
                                 }

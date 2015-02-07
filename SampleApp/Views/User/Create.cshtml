@@ -1,13 +1,12 @@
-﻿@model SampleApp.Entity.Patient
+﻿@model SampleApp.Entity.User
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script type="text/javascript">
-    $("#patient").addClass("active")
-
+    $("#adminUser").addClass("active")
     function backToList() {
-        window.location.href = "/Home/Index";
+        window.location.href = "/User/Index";
     }
 </script>
 <div class="row-fluid">
@@ -23,7 +22,7 @@
                 @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal form-validate" }))
                 {
                     @Html.ValidationSummary(true)
-                    @Html.HiddenFor(model => model.PatientID)
+                    @Html.HiddenFor(model => model.UserID)
                     <div class="span5">
                         <div class="step" id="firstStep">
                             <div class="control-group">
@@ -39,41 +38,15 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="textfield" class="control-label">Wife First Name</label>
+                                <label for="textfield" class="control-label">Phone</label>
                                 <div class="controls">
-                                    @Html.TextBoxFor(model => model.WifeFirstName, new { @class = "input-xlarge", @placeholder = "Wife First Name", @required = "required" })
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "input-xlarge", @placeholder = "Phone", @required = "required" })
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Maiden Name</label>
                                 <div class="controls">
-                                    @Html.TextBoxFor(model => model.MaidenName, new { @class = "input-xlarge", @placeholder = "Maiden Name", @required = "required" })
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="textfield" class="control-label">Phone</label>
-                                <div class="controls">
-                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "input-xlarge", @placeholder = "Phone Number", @required = "required" })
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="textfield" class="control-label">Email</label>
-                                <div class="controls">
                                     @Html.TextBoxFor(model => model.Email, new { @class = "input-xlarge", @placeholder = "Email", @required = "required" })
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="textfield" class="control-label">Category</label>
-                                <div class="controls">
-                                    @Html.DropDownList("Category", ViewData["Category"] as SelectListItem[], "-- Select Category --", new { @class = "select2-me input-xlarge" })
-                                    @Html.ValidationMessageFor(model => model.CatagoryId)
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="textfield" class="control-label">Application Status</label>
-                                <div class="controls">
-                                    @Html.DropDownList("ApplicationStatus", ViewData["ApplicationStatus"] as SelectListItem[], "-- Select ApplicationStatus --", new { @class = " select2-me input-xlarge" })
-                                    @Html.ValidationMessageFor(model => model.CatagoryId)
                                 </div>
                             </div>
                             <div class="form-actions">
@@ -87,5 +60,6 @@
         </div>
     </div>
 </div>
+
 
 

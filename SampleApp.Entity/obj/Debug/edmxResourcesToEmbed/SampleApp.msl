@@ -1,45 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SampleAppModelStoreContainer" CdmEntityContainer="SampleAppEntities">
-    <EntitySetMapping Name="ApplicationStatus">
-      <EntityTypeMapping TypeName="SampleAppModel.ApplicationStatu">
-        <MappingFragment StoreEntitySet="ApplicationStatus">
-          <ScalarProperty Name="ApplicationStatusId" ColumnName="ApplicationStatusId" />
-          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Catagories">
-      <EntityTypeMapping TypeName="SampleAppModel.Catagory">
-        <MappingFragment StoreEntitySet="Catagory">
-          <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
-          <ScalarProperty Name="CatagoryName" ColumnName="CatagoryName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Patients">
-      <EntityTypeMapping TypeName="SampleAppModel.Patient">
-        <MappingFragment StoreEntitySet="Patients">
-          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="WifeFirstName" ColumnName="WifeFirstName" />
-          <ScalarProperty Name="MaidenName" ColumnName="MaidenName" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
-          <ScalarProperty Name="Infertility" ColumnName="Infertility" />
-          <ScalarProperty Name="HighReskPregnancy" ColumnName="HighReskPregnancy" />
-          <ScalarProperty Name="MedicalFertilityPreservation" ColumnName="MedicalFertilityPreservation" />
-          <ScalarProperty Name="GeneticsPediatric" ColumnName="GeneticsPediatric" />
-          <ScalarProperty Name="Insurance" ColumnName="Insurance" />
-          <ScalarProperty Name="Adoption" ColumnName="Adoption" />
-          <ScalarProperty Name="ApplicationStatusID" ColumnName="ApplicationStatusID" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="Denied" ColumnName="Denied" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SendVias">
       <EntityTypeMapping TypeName="SampleAppModel.SendVia">
         <MappingFragment StoreEntitySet="SendVia">
@@ -69,6 +30,39 @@
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationStatus">
+      <EntityTypeMapping TypeName="SampleAppModel.ApplicationStatu">
+        <MappingFragment StoreEntitySet="ApplicationStatus">
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="ApplicationStatusId" ColumnName="ApplicationStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catagories">
+      <EntityTypeMapping TypeName="SampleAppModel.Catagory">
+        <MappingFragment StoreEntitySet="Catagory">
+          <ScalarProperty Name="CatagoryName" ColumnName="CatagoryName" />
+          <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="SampleAppModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="Denied" ColumnName="Denied" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ApplicationStatusID" ColumnName="ApplicationStatusID" />
+          <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MaidenName" ColumnName="MaidenName" />
+          <ScalarProperty Name="WifeFirstName" ColumnName="WifeFirstName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

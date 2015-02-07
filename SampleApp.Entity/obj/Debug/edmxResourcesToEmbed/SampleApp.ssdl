@@ -46,12 +46,6 @@
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
     <Property Name="CatagoryId" Type="int" />
-    <Property Name="Infertility" Type="nvarchar" MaxLength="50" />
-    <Property Name="HighReskPregnancy" Type="nvarchar" MaxLength="50" />
-    <Property Name="MedicalFertilityPreservation" Type="nvarchar" MaxLength="50" />
-    <Property Name="GeneticsPediatric" Type="nvarchar" MaxLength="50" />
-    <Property Name="Insurance" Type="nvarchar" MaxLength="50" />
-    <Property Name="Adoption" Type="nvarchar" MaxLength="50" />
     <Property Name="ApplicationStatusID" Type="int" />
     <Property Name="Active" Type="bit" />
     <Property Name="Denied" Type="bit" />
