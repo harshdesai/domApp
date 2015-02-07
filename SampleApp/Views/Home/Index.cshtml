@@ -1,0 +1,93 @@
+﻿@model List<SampleApp.Entity.Patient>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $(".delete").click(function (e) {
+            var result = confirm("Are you Want to Delete Actor?");
+            if (result == false) {
+                e.preventDefault();
+            }
+        });
+        setTimeout(function () {
+            $(".msg").hide(500);
+        },
+            5000
+        );
+    });
+
+    function newPatient() {
+        window.location.href = "/Home/Create";
+    }
+</script>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-color box-bordered">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-table"></i>Pateint List
+				</h3>
+                <div class="actions">
+                    <a class="btn" href="#" onclick="newPatient()">
+                        <i class="icon-plus-sign"></i>
+                        Add Patient
+                    </a>
+                </div>
+            </div>
+            <div class="box-content nopadding">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped dataTable table-bordered table-hover dataTables">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].FirstName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].LastName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].WifeFirstName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].Email)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Count(); i++)
+                                {
+                                    <tr class="@string.Format("{0}", (i % 2) == 0 ? "odd" : "even")">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].WifeFirstName)
+                                        </td>
+                                        <td style="width: 500px;">
+                                            @Html.DisplayFor(modelItem => modelItem[i].Email)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Create", new { id = Model[i].PatientID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = Model[i].PatientID }, new { @class = "delete" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

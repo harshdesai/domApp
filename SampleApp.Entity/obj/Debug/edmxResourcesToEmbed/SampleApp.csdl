@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleAppModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SampleAppEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ApplicationStatus" EntityType="SampleAppModel.ApplicationStatu" />
+    <EntitySet Name="Catagories" EntityType="SampleAppModel.Catagory" />
+    <EntitySet Name="Patients" EntityType="SampleAppModel.Patient" />
+    <EntitySet Name="SendVias" EntityType="SampleAppModel.SendVia" />
+    <EntitySet Name="Tasks" EntityType="SampleAppModel.Task" />
+    <EntitySet Name="Users" EntityType="SampleAppModel.User" />
+    <AssociationSet Name="FK_Patients_ApplicationStatus" Association="SampleAppModel.FK_Patients_ApplicationStatus">
+      <End Role="ApplicationStatus" EntitySet="ApplicationStatus" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patients_Catagory" Association="SampleAppModel.FK_Patients_Catagory">
+      <End Role="Catagory" EntitySet="Catagories" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_SendVia" Association="SampleAppModel.FK_Tasks_SendVia">
+      <End Role="SendVia" EntitySet="SendVias" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ApplicationStatu">
+    <Key>
+      <PropertyRef Name="ApplicationStatusId" />
+    </Key>
+    <Property Name="ApplicationStatusId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Patients" Relationship="SampleAppModel.FK_Patients_ApplicationStatus" FromRole="ApplicationStatus" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="Catagory">
+    <Key>
+      <PropertyRef Name="CatagoryId" />
+    </Key>
+    <Property Name="CatagoryId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CatagoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Patients" Relationship="SampleAppModel.FK_Patients_Catagory" FromRole="Catagory" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="WifeFirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MaidenName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CatagoryId" Type="Int32" />
+    <Property Name="Infertility" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HighReskPregnancy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MedicalFertilityPreservation" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="GeneticsPediatric" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Insurance" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Adoption" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationStatusID" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Denied" Type="Boolean" />
+    <NavigationProperty Name="ApplicationStatu" Relationship="SampleAppModel.FK_Patients_ApplicationStatus" FromRole="Patients" ToRole="ApplicationStatus" />
+    <NavigationProperty Name="Catagory" Relationship="SampleAppModel.FK_Patients_Catagory" FromRole="Patients" ToRole="Catagory" />
+  </EntityType>
+  <EntityType Name="SendVia">
+    <Key>
+      <PropertyRef Name="SendViaID" />
+    </Key>
+    <Property Name="SendViaID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SendViaName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Tasks" Relationship="SampleAppModel.FK_Tasks_SendVia" FromRole="SendVia" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="FollowupDate" Type="DateTime" Precision="3" />
+    <Property Name="SendViaID" Type="Int32" />
+    <NavigationProperty Name="SendVia" Relationship="SampleAppModel.FK_Tasks_SendVia" FromRole="Tasks" ToRole="SendVia" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Patients_ApplicationStatus">
+    <End Role="ApplicationStatus" Type="SampleAppModel.ApplicationStatu" Multiplicity="0..1" />
+    <End Role="Patients" Type="SampleAppModel.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicationStatus">
+        <PropertyRef Name="ApplicationStatusId" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="ApplicationStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patients_Catagory">
+    <End Role="Catagory" Type="SampleAppModel.Catagory" Multiplicity="0..1" />
+    <End Role="Patients" Type="SampleAppModel.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catagory">
+        <PropertyRef Name="CatagoryId" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="CatagoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_SendVia">
+    <End Role="SendVia" Type="SampleAppModel.SendVia" Multiplicity="0..1" />
+    <End Role="Tasks" Type="SampleAppModel.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SendVia">
+        <PropertyRef Name="SendViaID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="SendViaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
