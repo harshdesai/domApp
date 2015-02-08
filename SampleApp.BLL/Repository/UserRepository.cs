@@ -16,25 +16,25 @@ namespace SampleApp.BLL.Repository
             _entity = new SampleAppEntities();
         }
 
-        public int SaveUser(User userFromDB)
+        public int SaveUser(User userFrom)
         {
-            if (userFromDB.UserID > 0)
+            User userFromDB = new User();
+            if (userFrom.UserID > 0)
             {
-                userFromDB = _entity.Users.Find(userFromDB.UserID);
+                userFromDB = _entity.Users.Find(userFrom.UserID);
             }
-            userFromDB.FirstName = userFromDB.FirstName;
-            userFromDB.LastName = userFromDB.LastName;
-            userFromDB.Phone = userFromDB.Phone;
-            userFromDB.Email = userFromDB.Email;
+            userFromDB.FirstName = userFrom.FirstName;
+            userFromDB.LastName = userFrom.LastName;
+            userFromDB.Phone = userFrom.Phone;
+            userFromDB.Email = userFrom.Email;
 
-            if (userFromDB.UserID == 0)
+            if (userFrom.UserID == 0)
             {
                 _entity.Users.Add(userFromDB);
             }
             _entity.SaveChanges();
             return userFromDB.UserID;
         }
-
 
         public List<User> GetUsers()
         {
@@ -48,6 +48,13 @@ namespace SampleApp.BLL.Repository
             _entity.Users.Remove(user);
             _entity.SaveChanges();
             return "Delete Successfully!!";
+        }
+
+        public User GetUserByID(int id)
+        {
+            User user = new User();
+            user = _entity.Users.Find(id);
+            return user;
         }
     }
 }

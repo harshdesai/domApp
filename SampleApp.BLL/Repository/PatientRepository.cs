@@ -16,24 +16,27 @@ namespace SampleApp.BLL.Repository
             _entity = new SampleAppEntities();
         }
 
-        public int SavePatients(Patient patientFromDB)
+        public int SavePatients(Patient patientFrom)
         {
-            if (patientFromDB.PatientID > 0)
+            Patient patientFromDB = new Patient();
+            if (patientFrom.PatientID > 0)
             {
-                patientFromDB = _entity.Patients.Find(patientFromDB.PatientID);
+                patientFromDB = _entity.Patients.Find(patientFrom.PatientID);
             }
-            patientFromDB.FirstName = patientFromDB.FirstName;
-            patientFromDB.LastName = patientFromDB.LastName;
-            patientFromDB.WifeFirstName = patientFromDB.WifeFirstName;
-            patientFromDB.MaidenName = patientFromDB.MaidenName;
-            patientFromDB.PhoneNumber = patientFromDB.PhoneNumber;
-            patientFromDB.Email = patientFromDB.Email;
-            patientFromDB.CatagoryId = patientFromDB.CatagoryId;
-            patientFromDB.ApplicationStatusID = patientFromDB.ApplicationStatusID;
+
+            patientFromDB.FirstName = patientFrom.FirstName;
+            patientFromDB.LastName = patientFrom.LastName;
+            patientFromDB.WifeFirstName = patientFrom.WifeFirstName;
+            patientFromDB.MaidenName = patientFrom.MaidenName;
+            patientFromDB.PhoneNumber = patientFrom.PhoneNumber;
+            patientFromDB.Email = patientFrom.Email;
+            patientFromDB.CatagoryId = patientFrom.CatagoryId;
+            patientFromDB.ApplicationStatusID = patientFrom.ApplicationStatusID;
             patientFromDB.Active = true;//patientFromDB.Active;
             patientFromDB.Denied = false;//patientFromDB.Denied;
-            if (patientFromDB.PatientID == 0)
+            if (patientFrom.PatientID == 0)
             {
+
                 _entity.Patients.Add(patientFromDB);
             }
             _entity.SaveChanges();
@@ -52,6 +55,13 @@ namespace SampleApp.BLL.Repository
             _entity.Patients.Remove(patient);
             _entity.SaveChanges();
             return "Delete Successfully!!";
+        }
+
+        public Patient GetPatientByID(int id)
+        {
+            Patient patient = new Patient();
+            patient = _entity.Patients.Find(id);
+            return patient;
         }
     }
 }

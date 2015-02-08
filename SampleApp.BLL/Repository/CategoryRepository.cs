@@ -21,5 +21,6 @@ namespace SampleApp.BLL.Repository
             List<Catagory> list = _entity.Catagories.ToList();
             return list;
         }
+
     }
 }

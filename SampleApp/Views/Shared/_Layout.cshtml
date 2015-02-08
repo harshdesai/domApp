@@ -7,9 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- Apple devices fullscreen -->
     <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
     <title>SampleApp</title>
-
     <!-- Bootstrap -->
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <!-- Bootstrap responsive -->
@@ -19,6 +17,7 @@
     <link rel="stylesheet" href="~/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
     <!-- PageGuide -->
     <link rel="stylesheet" href="~/css/plugins/pageguide/pageguide.css">
+    <link rel="stylesheet" href="~/css/plugins/datepicker/datepicker.css">
     <!-- Fullcalendar -->
     <link rel="stylesheet" href="~/css/plugins/fullcalendar/fullcalendar.css">
     <link rel="stylesheet" href="~/css/plugins/fullcalendar/fullcalendar.print.css" media="print">
@@ -33,12 +32,9 @@
     <!-- Color CSS -->
     <link rel="stylesheet" href="~/css/themes.css">
     <!-- dataTables -->
-	<link rel="stylesheet" href="~/css/plugins/datatable/TableTools.css">
-
+    <link rel="stylesheet" href="~/css/plugins/datatable/TableTools.css">
     <!-- jQuery -->
     <script src="~/js/jquery.min.js"></script>
-
-
     <!-- Nice Scroll -->
     <script src="~/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- jQuery UI -->
@@ -73,24 +69,22 @@
     <script src="~/js/plugins/select2/select2.min.js"></script>
     <!-- icheck -->
     <script src="~/js/plugins/icheck/jquery.icheck.min.js"></script>
-
     <!-- Theme framework -->
     <script src="~/js/eakroko.min.js"></script>
     <!-- Theme scripts -->
     <script src="~/js/application.min.js"></script>
     <!-- Just for demonstration -->
     <script src="~/js/demonstration.min.js"></script>
-
     <!-- dataTables -->
-	<script src="~/js/plugins/datatable/jquery.dataTables.min.js"></script>
-	<script src="~/js/plugins/datatable/TableTools.min.js"></script>
-	<script src="~/js/plugins/datatable/ColReorder.min.js"></script>
-	<script src="~/js/plugins/datatable/ColVis.min.js"></script>
-	<script src="~/js/plugins/datatable/FixedColumns.min.js"></script>
-	<script src="~/js/plugins/datatable/dataTables.scroller.min.js"></script>
-
+    <script src="~/js/plugins/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins/datatable/TableTools.min.js"></script>
+    <script src="~/js/plugins/datatable/ColReorder.min.js"></script>
+    <script src="~/js/plugins/datatable/ColVis.min.js"></script>
+    <script src="~/js/plugins/datatable/FixedColumns.min.js"></script>
+    <script src="~/js/plugins/datatable/dataTables.scroller.min.js"></script>
     <script src="~/js/plugins/validation/jquery.validate.min.js"></script>
-	<script src="~/js/plugins/validation/additional-methods.min.js"></script>
+    <script src="~/js/plugins/validation/additional-methods.min.js"></script>
+    <script src="~/js/plugins/datepicker/bootstrap-datepicker.js"></script>
     <!--[if lte IE 9]>
 		<script src="~/js/plugins/placeholder/jquery.placeholder.min.js"></script>
 		<script>
@@ -104,6 +98,13 @@
     <link rel="shortcut icon" href="~/img/favicon.ico" />
     <!-- Apple devices Homescreen icon -->
     <link rel="apple-touch-icon-precomposed" href="~/img/apple-touch-icon-precomposed.png" />
+    <!-- Datepicker -->
+    <style>
+        .datepicker {
+            z-index: 1151 !important;
+        }
+    </style>
+
     @RenderSection("head", required: false)
 
 </head>
@@ -124,37 +125,10 @@
                     </a>
                 </li>
             </ul>
-            <div class="user">
-                @*<div class="dropdown">
-					<a href="#" class='dropdown-toggle' data-toggle="dropdown">John Doe <img src="img/demo/user-avatar.jpg" alt=""></a>
-					<ul class="dropdown-menu pull-right">
-						<li>
-							<a href="more-userprofile.html">Edit profile</a>
-						</li>
-						<li>
-							<a href="#">Account settings</a>
-						</li>
-						<li>
-							<a href="more-login.html">Sign out</a>
-						</li>
-					</ul>
-				</div>*@
-            </div>
+            <div class="user"></div>
         </div>
     </div>
     <div class="container-fluid" id="content">
-        @*<div id="left">
-			<div class="subnav">
-				<div class="subnav-title">
-					<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Patient</span></a>
-				</div>
-			</div>
-			<div class="subnav">
-				<div class="subnav-title">
-					<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>User</span></a>
-				</div>
-			</div>
-		</div>*@
         <div id="main" style="margin-left: 0">
             <div class="container-fluid">
                 @RenderBody()

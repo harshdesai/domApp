@@ -19,7 +19,7 @@
                 </h3>
             </div>
             <div class="box-content">
-                @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal form-validate" }))
+                @using (Html.BeginForm("Create", "User", FormMethod.Post, new { @class = "form-horizontal form-validate" }))
                 {
                     @Html.ValidationSummary(true)
                     @Html.HiddenFor(model => model.UserID)
@@ -34,17 +34,17 @@
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Last Name</label>
                                 <div class="controls">
-                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "input-xlarge", @placeholder = "Last Name", @required = "required" })
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "input-xlarge", @placeholder = "Last Name", @required = "required" })
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Phone</label>
                                 <div class="controls">
-                                    @Html.TextBoxFor(model => model.Phone, new { @class = "input-xlarge", @placeholder = "Phone", @required = "required" })
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "input-xlarge", @placeholder = "Phone", @required = "required"})
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="textfield" class="control-label">Maiden Name</label>
+                                <label for="textfield" class="control-label">Email</label>
                                 <div class="controls">
                                     @Html.TextBoxFor(model => model.Email, new { @class = "input-xlarge", @placeholder = "Email", @required = "required" })
                                 </div>

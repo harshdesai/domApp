@@ -16,5 +16,7 @@ namespace SampleApp.BLL.Interface
         
         string DeletePatient(int id);
 
+        Patient GetPatientByID(int id);
+
     }
 }

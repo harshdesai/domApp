@@ -14,17 +14,21 @@ namespace SampleApp.Controllers
     {
         //
         // GET: /Home/
-
         private IPatientRepository _pateintRepository;
         private ICategoryRepository _categoryRepository;
         private IApplicationStatusRepository _applicationStatusRepository;
-        public HomeController() : this(new PatientRepository(), new CategoryRepository(),new ApplicationStatusRepository()) { }
+        private ITaskRepository _taskRepository;
+        private IUserRepository _userRepository;
+        public HomeController() : this(new PatientRepository(), new CategoryRepository(), new ApplicationStatusRepository(), new TaskRepository(), new UserRepository()) { }
 
-        public HomeController(IPatientRepository pateintRepository, ICategoryRepository categoryRepository, IApplicationStatusRepository applicationsatusRepository)
+        public HomeController(IPatientRepository pateintRepository, ICategoryRepository categoryRepository,
+            IApplicationStatusRepository applicationsatusRepository, ITaskRepository taskRepository, IUserRepository userRepository)
         {
             this._pateintRepository = pateintRepository;
             this._categoryRepository = categoryRepository;
             this._applicationStatusRepository = applicationsatusRepository;
+            this._taskRepository = taskRepository;
+            this._userRepository = userRepository;
         }
 
         public ActionResult Index()
@@ -42,14 +46,16 @@ namespace SampleApp.Controllers
         public ActionResult Create(int id = 0)
         {
             Patient patient = null;
-            if (id > 0) { }
-            // patient = db.Actors.Find(id);
+            if (id > 0)
+            {
+                patient = _pateintRepository.GetPatientByID(id);
+            }
             if (patient == null)
             {
                 patient = new Patient();
             }
-            ViewBag.Category = new SelectList(_categoryRepository.GetCategory(), "CatagoryId", "CatagoryName", new  { @class="select2-me input-xlarge" });
-            ViewBag.ApplicationStatus = new SelectList(_applicationStatusRepository.GetApplicationStatus(), "ApplicationStatusId", "ApplicationName", new { @class = "select2-me input-xlarge" });
+            ViewBag.Category = new SelectList(_categoryRepository.GetCategory(), "CatagoryId", "CatagoryName", patient.CatagoryId);
+            ViewBag.ApplicationStatus = new SelectList(_applicationStatusRepository.GetApplicationStatus(), "ApplicationStatusId", "ApplicationName", patient.ApplicationStatusID);
             return View(patient);
         }
 
@@ -58,13 +64,28 @@ namespace SampleApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (id > 0)
-                {
-                    _pateintRepository.SavePatients(patient);
-                }
+                ViewBag.Category = new SelectList(_categoryRepository.GetCategory(), "CatagoryId", "CatagoryName", patient.CatagoryId);
+                ViewBag.ApplicationStatus = new SelectList(_applicationStatusRepository.GetApplicationStatus(), "ApplicationStatusId", "ApplicationName", patient.ApplicationStatusID);
+                _pateintRepository.SavePatients(patient);
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public ActionResult CreateTask(int id = 0)
+        {
+            Task task = null;
+            if (id > 0)
+            {
+                //task = _taskRepository.GetTasks();
+            }
+            if (task == null)
+            {
+                task = new Task();
+            }
+            ViewBag.Users = new SelectList(_userRepository.GetUsers(), "UserID", "FirstName", task.UserID);
+            ViewBag.SendVia = new SelectList(_taskRepository.GetSendViaList(), "SendViaID", "SendViaName", task.SendViaID);
+            return View(task);
         }
     }
 }

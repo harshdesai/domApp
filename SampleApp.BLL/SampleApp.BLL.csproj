@@ -85,10 +85,12 @@
     <Compile Include="Interface\IApplicationStatusRepository.cs" />
     <Compile Include="Interface\ICategoryRepository.cs" />
     <Compile Include="Interface\IPatientRepository.cs" />
+    <Compile Include="Interface\ITaskRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ApplicationStatusRepository.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\TaskRepository.cs" />
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>

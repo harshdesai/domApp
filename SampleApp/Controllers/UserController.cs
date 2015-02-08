@@ -36,8 +36,10 @@ namespace SampleApp.Controllers
         public ActionResult Create(int id = 0)
         {
             User user = null;
-            if (id > 0) { }
-            // patient = db.Actors.Find(id);
+            if (id > 0)
+            {
+                user = _userRepository.GetUserByID(id);
+            }
             if (user == null)
             {
                 user = new User();
@@ -50,10 +52,7 @@ namespace SampleApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (id > 0)
-                {
-                    _userRepository.SaveUser(user);
-                }
+                _userRepository.SaveUser(user);
                 return RedirectToAction("Index");
             }
             return View();

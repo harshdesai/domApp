@@ -13,5 +13,7 @@ namespace SampleApp.BLL.Interface
         string DeleteUser(int id);
 
         int SaveUser(User user);
+
+        User GetUserByID(int id);
     }
 }
