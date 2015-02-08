@@ -50,3 +50,5 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.WebPages.Razor.xml
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Debug\SampleApp.BLL.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Debug\SampleApp.BLL.pdb
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EO.Pdf.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EO.Web.dll

@@ -8,6 +8,8 @@ using SampleApp.BLL.Interface;
 using SampleApp.BLL.Repository;
 using SampleApp.Entity;
 using System.Collections;
+using MiniFacts.BLL.Common;
+using System.IO;
 namespace SampleApp.Controllers
 {
     public class HomeController : Controller
@@ -67,6 +69,11 @@ namespace SampleApp.Controllers
                 ViewBag.Category = new SelectList(_categoryRepository.GetCategory(), "CatagoryId", "CatagoryName", patient.CatagoryId);
                 ViewBag.ApplicationStatus = new SelectList(_applicationStatusRepository.GetApplicationStatus(), "ApplicationStatusId", "ApplicationName", patient.ApplicationStatusID);
                 _pateintRepository.SavePatients(patient);
+                string html = Helper.getRegistrationHtml(patient);
+                MemoryStream _contentStream = Helper.getPdf(patient);
+                string fileName = Helper.getRegistrationFileName();
+                Helper.sendMail("Application Complete", html, patient.Email, _contentStream, fileName);
+
                 return RedirectToAction("Index");
             }
             return View();
