@@ -27,14 +27,33 @@ namespace SampleApp.BLL.Repository
 
         public int SaveTasks(SampleApp.Entity.Task task)
         {
-            throw new NotImplementedException();
+            SampleApp.Entity.Task taskFromDB = new SampleApp.Entity.Task();
+            if (task.TaskID > 0)
+            {
+                taskFromDB = _entity.Tasks.Find(task.TaskID);
+            }
+
+            taskFromDB.Type = task.Type;
+            taskFromDB.Date = DateTime.Now;
+            taskFromDB.FollowupDate = task.FollowupDate;
+            taskFromDB.SendViaID = task.SendViaID;
+            taskFromDB.UserID = task.UserID;
+            taskFromDB.PatientID = task.PatientID;
+            if (task.TaskID == 0)
+            {
+
+                _entity.Tasks.Add(taskFromDB);
+            }
+            _entity.SaveChanges();
+            return taskFromDB.TaskID;
         }
 
-        public List<SendVia> GetSendViaList() {
+        public List<SendVia> GetSendViaList()
+        {
             List<SendVia> list = _entity.SendVias.ToList();
             return list;
         }
 
-       
+
     }
 }

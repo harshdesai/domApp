@@ -3,19 +3,21 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script type="text/javascript">
+    var Patient = [];
     $("#patient").addClass("active")
     function backToList() {
         window.location.href = "/Home/Index";
     }
+    function postback() {
+        $("#newTask").trigger("click");
+    }
+
     function AddTask() {
-        $.get("/Home/CreateTask", function (data) {
+        $.get("/Home/CreateTask", function (data, Patient) {
             $("#new-task").html("");
             $("#new-task").append(data);
-            //$("#new-task").dialog({
-            //    width: 700,
-            //    height: 500
-            //});
         });
     }
 </script>
@@ -29,10 +31,10 @@
                     <i class="icon-th-large"></i>
                     Patient Detail
                 </h3>
-                <a href="#new-task" data-toggle="modal" class='btn' onclick="AddTask()"><i class="icon-plus-sign"></i>Add Task</a>
+                <a href="#new-task" data-toggle="modal" style="display: none;" id="newTask" class='btn' onclick="AddTask()"></a>
             </div>
             <div class="box-content">
-                @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal form-validate" }))
+                @using (Ajax.BeginForm("Create", "Home", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "postback" }, new { @class = "form-horizontal form-validate" }))
                 {
                     @Html.ValidationSummary(true)
                     @Html.HiddenFor(model => model.PatientID)

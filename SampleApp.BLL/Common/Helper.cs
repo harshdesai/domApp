@@ -48,7 +48,7 @@ namespace MiniFacts.BLL.Common
             html = System.IO.File.ReadAllText(Helper.CombinePath(HttpContext.Current.Server.MapPath("~"), Helper.ApplicationRegistrationText));
             html = html.Replace("##FirstName##", _patientDetail.FirstName.ToString());
             html = html.Replace("##LastName##", _patientDetail.LastName);
-
+            html = html.Replace("##wifeFirstName##", _patientDetail.WifeFirstName);
             return html;
         }
 
@@ -56,12 +56,9 @@ namespace MiniFacts.BLL.Common
         {
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.To.Add(to);
-            mail.From = new MailAddress("harshdesai.088@gmail.com", "Application Completed", System.Text.Encoding.UTF8);
-            //mail.Subject = "Nature Club Valsad : Online Registration";
+            mail.From = new MailAddress("test.harshdesai@gmail.com", "Application Completed", System.Text.Encoding.UTF8);
             mail.Subject = subject;
-            //mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            mail.Body = "";//body;
-            //mail.BodyEncoding = System.Text.Encoding.UTF8;
+            mail.Body = body;
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;
             if (contentStream != null)
@@ -77,10 +74,10 @@ namespace MiniFacts.BLL.Common
 
             }
 
-            SmtpClient client = new SmtpClient("smtp.gmail.com");
-            client.Credentials = new System.Net.NetworkCredential("harshdesai.088@gmail.com", "technobliss@it");
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new System.Net.NetworkCredential("test.harshdesai@gmail.com", "harssh!desai10");
             client.Port = 587;
-            //client.Host = "smtp.gmail.com";
+            client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
             try
             {
