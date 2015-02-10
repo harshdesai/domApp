@@ -49,14 +49,20 @@ namespace MiniFacts.BLL.Common
             html = html.Replace("##FirstName##", _patientDetail.FirstName.ToString());
             html = html.Replace("##LastName##", _patientDetail.LastName);
             html = html.Replace("##wifeFirstName##", _patientDetail.WifeFirstName);
+            html = html.Replace("##HusbandEmail##", _patientDetail.Email;
+            html = html.Replace("##HomePh##",_patientDetail.PhoneNumber);
+            html = html.Replace("##MaidenName##",_patientDetail.MaidenName);
+
             return html;
         }
 
         public static bool sendMail(string subject, string body, string to, MemoryStream contentStream, string fileName)
         {
+            string from = ConfigurationManager.AppSettings["FromEmail"].ToString();
+            string password = ConfigurationManager.AppSettings["FromPassword"].ToString();
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.To.Add(to);
-            mail.From = new MailAddress("test.harshdesai@gmail.com", "Application Completed", System.Text.Encoding.UTF8);
+            mail.From = new MailAddress(from,"Application Completed", System.Text.Encoding.UTF8);
             mail.Subject = subject;
             mail.Body = body;
             mail.IsBodyHtml = true;
@@ -75,7 +81,7 @@ namespace MiniFacts.BLL.Common
             }
 
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("test.harshdesai@gmail.com", "harssh!desai10");
+            client.Credentials = new System.Net.NetworkCredential(from, password);
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;

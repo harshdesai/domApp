@@ -114,7 +114,7 @@ namespace SampleApp.Controllers
             _taskRepository.SaveTasks(task);
             MemoryStream _contentStream = Helper.getPdf(patient);
             string fileName = Helper.getRegistrationFileName();
-            Helper.sendMail("Application Complete", "Please find the attchment", patient.Email, _contentStream, fileName);
+            Helper.sendMail("Application Complete", "Please find the attachment", patient.Email, _contentStream, fileName);
             return RedirectToAction("Create/" + PateintID);
         }
     }
