@@ -1,0 +1,105 @@
+﻿@model SampleApp.Entity.Patient
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript">
+    var Patient = [];
+    $("#patient").addClass("active")
+    function backToList() {
+        window.location.href = "/Home/Index";
+    }
+    function postback() {
+        $("#newTask").trigger("click");
+    }
+
+    function AddTask() {
+        $.get("/Home/CreateTask", function (data, Patient) {
+            $("#new-task").html("");
+            $("#new-task").append(data);
+        });
+    }
+</script>
+<div class="row-fluid">
+    <div class="span12">
+        <div id="new-task" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+        <div class="box">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-th-large"></i>
+                    Patient Detail
+                </h3>
+                <a href="#new-task" data-toggle="modal" style="display: none;" id="newTask" class='btn' onclick="AddTask()"></a>
+            </div>
+            <div class="box-content">
+                @using (Ajax.BeginForm("Create", "Home", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "postback" }, new { @class = "form-horizontal form-validate" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.PatientID)
+                    <div class="span5">
+                        <div class="step" id="firstStep">
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">First Name</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "input-xlarge", @placeholder = "First Name", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Last Name</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "input-xlarge", @placeholder = "Last Name", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Wife First Name</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.WifeFirstName, new { @class = "input-xlarge", @placeholder = "Wife First Name", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Maiden Name</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.MaidenName, new { @class = "input-xlarge", @placeholder = "Maiden Name", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Phone</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "input-xlarge", @placeholder = "Phone Number", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Email</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "input-xlarge", @placeholder = "Email", @required = "required", data_rule_email = "true", @id = "emailfield" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Category</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(m => m.CatagoryId, (IEnumerable<SelectListItem>)ViewData["Category"], "-- Selecte Category --", new { @class = "select2-me input-xlarge", @data_rule_required = "true" })
+                                    @Html.ValidationMessageFor(model => model.CatagoryId)
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Application Status</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(m => m.ApplicationStatusID, (IEnumerable<SelectListItem>)ViewData["ApplicationStatus"], "-- Select ApplicationStatus --", new { @class = " select2-me input-xlarge" })
+                                    @Html.ValidationMessageFor(model => model.CatagoryId)
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                                <button class="btn" type="button" onclick="backToList()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

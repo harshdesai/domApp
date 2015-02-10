@@ -1,0 +1,65 @@
+﻿@model SampleApp.Entity.User
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    $("#adminUser").addClass("active")
+    function backToList() {
+        window.location.href = "/User/Index";
+    }
+</script>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-th-large"></i>
+                    Patient Detail
+                </h3>
+            </div>
+            <div class="box-content">
+                @using (Html.BeginForm("Create", "User", FormMethod.Post, new { @class = "form-horizontal form-validate" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.UserID)
+                    <div class="span5">
+                        <div class="step" id="firstStep">
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">First Name</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "input-xlarge", @placeholder = "First Name", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Last Name</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "input-xlarge", @placeholder = "Last Name", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Phone</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "input-xlarge", @placeholder = "Phone", @required = "required"})
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="textfield" class="control-label">Email</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "input-xlarge", @placeholder = "Email", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                                <button class="btn" type="button" onclick="backToList()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

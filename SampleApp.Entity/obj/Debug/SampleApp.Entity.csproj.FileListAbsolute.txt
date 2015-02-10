@@ -13,3 +13,4 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\bin\Debug\EntityFr
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\bin\Debug\EntityFramework.xml
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\obj\Debug\SampleApp.Entity.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\obj\Debug\SampleApp.Entity.pdb
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\obj\Debug\SampleApp.Entity.csprojResolveAssemblyReference.cache

@@ -92,6 +92,7 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\Utility.cs" />
+    <Compile Include="Helper\PateintHelper.cs" />
     <Compile Include="Interface\IApplicationStatusRepository.cs" />
     <Compile Include="Interface\ICategoryRepository.cs" />
     <Compile Include="Interface\IPatientRepository.cs" />

@@ -11,7 +11,9 @@ using System.Web;
 using EO.Pdf;
 using System.Configuration;
 using System.Drawing;
-namespace MiniFacts.BLL.Common
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+namespace SampleApp.BLL.Common
 {
     public class Helper
     {
@@ -49,7 +51,7 @@ namespace MiniFacts.BLL.Common
             html = html.Replace("##FirstName##", _patientDetail.FirstName.ToString());
             html = html.Replace("##LastName##", _patientDetail.LastName);
             html = html.Replace("##wifeFirstName##", _patientDetail.WifeFirstName);
-            html = html.Replace("##HusbandEmail##", _patientDetail.Email;
+            html = html.Replace("##HusbandEmail##", _patientDetail.Email);
             html = html.Replace("##HomePh##",_patientDetail.PhoneNumber);
             html = html.Replace("##MaidenName##",_patientDetail.MaidenName);
 
@@ -135,6 +137,34 @@ namespace MiniFacts.BLL.Common
             HtmlToPdfResult htmlToPdfResult = HtmlToPdf.ConvertHtml(html, msOutput);
 
             return msOutput;
+        }
+
+        public static JObject ListToJObject<T>(List<T> list)
+        {
+            if (list.Count > 0)
+            {
+                string data = JsonConvert.SerializeObject(list);
+                var json = JToken.Parse(data);
+
+                Type myType = typeof(T);
+                var pList = myType.GetProperties().Where(p => !p.GetAccessors()[0].IsVirtual).Select(p => p.Name).ToList();
+
+                for (int x = 0; x < json.Count(); x++)
+                {
+                    var obj = json[x];
+
+                    var child = obj.Children().ToList();
+                    for (int i = 0; i < child.Count; i++)
+                    {
+                        JProperty jP = child[i] as JProperty;
+                        if (!pList.Contains(jP.Name))
+                            child[i].Remove();
+                    }
+                }
+                return json as JObject;
+            }
+            else
+                return null;
         }
     }
 }

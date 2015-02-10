@@ -13,10 +13,13 @@ namespace SampleApp.BLL.Interface
         int SavePatients(Patient patient);
 
         List<Patient> GetPatient();
+
+        string GetPatientJson();
         
         string DeletePatient(int id);
 
         Patient GetPatientByID(int id);
 
+        string GetPatientByCategory();
     }
 }

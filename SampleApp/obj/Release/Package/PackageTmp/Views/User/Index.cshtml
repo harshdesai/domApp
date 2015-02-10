@@ -1,0 +1,87 @@
+﻿@model List<SampleApp.Entity.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $("#adminUser").addClass("active")
+
+        $(".delete").click(function (e) {
+            var result = confirm("Are you Want to Delete Actor?");
+            if (result == false) {
+                e.preventDefault();
+            }
+        });
+        setTimeout(function () {
+            $(".msg").hide(500);
+        },
+            5000
+        );
+    });
+
+    function newUser() {
+        window.location.href = "/User/Create";
+    }
+</script>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-color box-bordered">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-table"></i>User List
+				</h3>
+                <div class="actions">
+                    <a class="btn" href="#" onclick="newUser()">
+                        <i class="icon-plus-sign"></i>
+                        Add User
+                    </a>
+                </div>
+            </div>
+            <div class="box-content nopadding">
+                <table class="table table-striped dataTable table-bordered table-hover dataTables dataTable-scroll-x">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model[0].FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model[0].LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model[0].Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model[0].Email)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            <tr class="@string.Format("{0}", (i % 2) == 0 ? "odd" : "even")">
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem[i].FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem[i].LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem[i].Phone)
+                                </td>
+                                <td style="width: 500px;">
+                                    @Html.DisplayFor(modelItem => modelItem[i].Email)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Create", new { id = Model[i].UserID}) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = Model[i].UserID }, new { @class = "delete" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

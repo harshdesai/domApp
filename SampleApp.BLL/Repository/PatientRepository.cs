@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using SampleApp.BLL.Interface;
 using SampleApp.Entity;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using SampleApp.BLL.Common;
+using Newtonsoft.JsonResult;
 namespace SampleApp.BLL.Repository
 {
     public class PatientRepository : IPatientRepository
@@ -50,7 +53,20 @@ namespace SampleApp.BLL.Repository
             return list;
         }
 
-        public string DeletePatient(int pateintID) {
+        public string GetPatientJson()
+        {
+            List<Patient> list = new List<Patient>();
+            list = _entity.Patients.ToList();
+            string result = JsonConvert.SerializeObject(list, Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                        });
+            return result;
+        }
+
+        public string DeletePatient(int pateintID)
+        {
             Patient patient = _entity.Patients.Find(pateintID);
             _entity.Patients.Remove(patient);
             _entity.SaveChanges();
@@ -62,6 +78,20 @@ namespace SampleApp.BLL.Repository
             Patient patient = new Patient();
             patient = _entity.Patients.Find(id);
             return patient;
+        }
+
+        public string GetPatientByCategory()
+        {
+            var patientChart = _entity.Patients.GroupBy(a => a.CatagoryId).ToList();
+
+            string result = JsonConvert.SerializeObject(patientChart, Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                        });
+
+
+            return result;
         }
     }
 }

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SampleAppEntities-Web.config Connection String" description="SampleAppEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/SampleApp.csdl|res://*/SampleApp.ssdl|res://*/SampleApp.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=JANKI-PC\SQLEXPRESS;initial catalog=SampleApp;persist security info=True;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Dot\ Net\ Applications\\Shaul\ Rosenberg\\demo\\SampleApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SampleAppEntities']/@connectionString" />
+  </parameter>
+</parameters>

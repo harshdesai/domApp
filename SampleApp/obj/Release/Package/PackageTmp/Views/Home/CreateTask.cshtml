@@ -1,0 +1,59 @@
+﻿@model SampleApp.Entity.Task
+@{
+    ViewBag.Title = "CreateTask";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/js/eakroko.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#followupDate').datepicker({
+            format: "dd/mm/yyyy"
+        });
+    })
+</script>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">New Task</h3>
+</div>
+@using (Html.BeginForm("CreateTask", "Home" ,FormMethod.Post, new { @class = "form-horizontal form-validate" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.TaskID)
+    <div class="modal-body padding">
+        <div class="span5">
+            <div class="step" id="firstStep">
+                <div class="control-group">
+                    <label for="textfield" class="control-label">User</label>
+                    <div class="controls">
+                        @Html.DropDownListFor(m => m.UserID, (IEnumerable<SelectListItem>)ViewData["Users"], "-- Selecte User --", new { @class = "select2-me input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.UserID)
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="textfield" class="control-label">Followup Date</label>
+                    <div class="controls">
+                         @Html.TextBoxFor(model => model.FollowupDate, new { @class = "input-medium datepick", @required = "required" ,@id="followupDate" })
+                        @*<input type="text" name="textfield" id="followupDate" class="input-medium datepick">*@
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="textfield" class="control-label">Type</label>
+                    <div class="controls">
+                        @Html.DropDownList("Type",new List<SelectListItem> { new SelectListItem { Text = "Send Application", Value = "Send Application" } }, new { @class = "select2-me input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.UserID)
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="textfield" class="control-label">Send Method</label>
+                    <div class="controls">
+                        @Html.DropDownListFor(m => m.SendViaID, (IEnumerable<SelectListItem>)ViewData["SendVia"], "-- Selecte Send Method --" , new { @class = "select2-me input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.UserID)
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

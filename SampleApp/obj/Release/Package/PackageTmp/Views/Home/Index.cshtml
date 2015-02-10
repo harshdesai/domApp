@@ -1,0 +1,221 @@
+﻿@model List<SampleApp.Entity.Patient>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/js/d3/d3.min.js"></script>
+<script src="~/js/d3/d3pie.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#patient").addClass("active")
+
+        $(".delete").click(function (e) {
+            var result = confirm("Are you Want to Delete Actor?");
+            if (result == false) {
+                e.preventDefault();
+            }
+        });
+        setTimeout(function () {
+            $(".msg").hide(500);
+        },
+            5000
+        );
+    });
+
+   
+
+    function newPatient() {
+        window.location.href = "/Home/Create";
+    }
+</script>
+@*<blockquote>
+    <pre>
+var pie = new d3pie("pie", {
+  data: {
+    content: [
+      { label: "Elephants", value: 1 },
+      { label: "Motmots", value: 2 },
+      { label: "Pikas", value: 3 },
+      { label: "Jays", value: 2 },
+      { label: "Rhubarb", value: 5 },
+      { label: "Tennis", value: 2 },
+      { label: "Chickens", value: 1 }
+    ]
+  },
+  tooltips: {
+    enabled: true,
+    type: "placeholder",
+    string: "{label}: {percentage}% ({value})",
+
+    // data is an object with the three properties listed below. Just modify the properties
+    // directly - there's no need to return anything
+    placeholderParser: function(index, data) {
+      data.label = data.label + "!";
+      data.percentage = data.percentage.toFixed(2);
+      data.value = data.value.toFixed(5);
+    }
+  }
+});
+</pre>
+</blockquote>*@
+<div class="row-fluid">
+     <div class="span6">
+        <div id="categoey"></div>
+    </div>
+    <div class="span6">
+        <div id="applicationstatus"></div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-color box-bordered">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-table"></i>Pateint List
+				</h3>
+                <div class="actions">
+                    <a class="btn" href="#" onclick="newPatient()">
+                        <i class="icon-plus-sign"></i>
+                        Add Patient
+                    </a>
+                </div>
+            </div>
+            <div class="box-content nopadding">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped dataTable table-bordered table-hover dataTables dataTable-scroll-x">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].FirstName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].LastName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].WifeFirstName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].MaidenName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].PhoneNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model[0].Catagory)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Application Status")
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Count(); i++)
+                                {
+                                    <tr class="@string.Format("{0}", (i % 2) == 0 ? "odd" : "even")">
+                                        <td>
+                                            @Html.ActionLink("Edit", "Create", new { id = Model[i].PatientID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = Model[i].PatientID }, new { @class = "delete" })
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].WifeFirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].MaidenName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].PhoneNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].Catagory.CatagoryName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem[i].ApplicationStatu.ApplicationName)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $.get("/Home/GetCategoryByPateintGroup", function (data) {
+            var CategoryData = JSON.parse(data);
+            var catContent = [];
+            var appStatusContent = [];
+            for (var i = 0 ; i < CategoryData.length; i++) {
+                var cat = CategoryData[i];
+                var index = catContent.map(function (c) { return c.label; }).indexOf(cat.Catagory.CatagoryName);
+                if (index == -1) {
+                    catContent.push({ label: cat.Catagory.CatagoryName, value: 1 });
+                }
+                else {
+                    catContent[index].value++;
+                }
+
+                index = appStatusContent.map(function (c) { return c.label; }).indexOf(cat.ApplicationStatu.ApplicationName);
+                if (index == -1) {
+                    appStatusContent.push({ label: cat.ApplicationStatu.ApplicationName, value: 1 });
+                }
+                else {
+                    appStatusContent[index].value++;
+                }
+            }
+
+            var categoey = new d3pie("categoey", {
+                data: {
+                    content: catContent
+                },
+                tooltips: {
+                    enabled: true,
+                    type: "placeholder",
+                    string: "{label}: {percentage}% ({value})",
+                    placeholderParser: function (index, data) {
+                        data.label = data.label + "!";
+                        data.percentage = data.percentage.toFixed(2);
+                        data.value = data.value.toFixed(5);
+                    }
+                }
+            });
+
+            var applicationstatus = new d3pie("applicationstatus", {
+                data: {
+                    content: appStatusContent
+                },
+                tooltips: {
+                    enabled: true,
+                    type: "placeholder",
+                    string: "{label}: {percentage}% ({value})",
+                    placeholderParser: function (index, data) {
+                        data.label = data.label + "!";
+                        data.percentage = data.percentage.toFixed(2);
+                        data.value = data.value.toFixed(5);
+                    }
+                }
+            });
+        })
+    });
+
+    
+
+    
+</script>

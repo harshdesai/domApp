@@ -8,7 +8,7 @@ using SampleApp.BLL.Interface;
 using SampleApp.BLL.Repository;
 using SampleApp.Entity;
 using System.Collections;
-using MiniFacts.BLL.Common;
+using SampleApp.BLL.Common;
 using System.IO;
 using Newtonsoft.Json.Linq;
 namespace SampleApp.Controllers
@@ -71,7 +71,7 @@ namespace SampleApp.Controllers
                 ViewBag.ApplicationStatus = new SelectList(_applicationStatusRepository.GetApplicationStatus(), "ApplicationStatusId", "ApplicationName", patient.ApplicationStatusID);
                 //_pateintRepository.SavePatients(patient);
                 //string html = Helper.getRegistrationHtml(patient);
-               
+
                 TempData["Patient"] = patient;
                 return Json(patient, JsonRequestBehavior.AllowGet);
                 //new JsonResult(n ) { Data = Newtonsoft.Json.JsonConvert.SerializeObject(patient)};
@@ -116,6 +116,13 @@ namespace SampleApp.Controllers
             string fileName = Helper.getRegistrationFileName();
             Helper.sendMail("Application Complete", "Please find the attachment", patient.Email, _contentStream, fileName);
             return RedirectToAction("Create/" + PateintID);
+        }
+
+        [HttpGet]
+        public JsonResult GetCategoryByPateintGroup()
+        {
+            string data = _pateintRepository.GetPatientJson();
+            return Json(data ,JsonRequestBehavior.AllowGet);
         }
     }
 }

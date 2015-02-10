@@ -692,11 +692,14 @@
     <Content Include="img\sorting-asc.png" />
     <Content Include="img\sorting-desc.png" />
     <Content Include="img\sorting.png" />
-    <Content Include="js\angular\angular.min.js" />
     <Content Include="js\application.js" />
     <Content Include="js\application.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\d3\d3.js" />
+    <Content Include="js\d3\d3.min.js" />
+    <Content Include="js\d3\d3pie.js" />
+    <Content Include="js\d3\d3pie.min.js" />
     <Content Include="js\demonstration.js" />
     <Content Include="js\demonstration.min.js" />
     <Content Include="js\eakroko.js" />
@@ -1118,7 +1121,8 @@
     <Content Include="js\plugins\xeditable\bootstrap-editable.min.js" />
     <Content Include="js\plugins\xeditable\demo.js" />
     <Content Include="js\plugins\xeditable\demo.min.js" />
-    <Content Include="js\angular\angular.min.js.map" />
+    <None Include="Properties\PublishProfiles\domSample - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\domSample - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
