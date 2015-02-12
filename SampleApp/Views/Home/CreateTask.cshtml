@@ -25,7 +25,7 @@
                 <div class="control-group">
                     <label for="textfield" class="control-label">User</label>
                     <div class="controls">
-                        @Html.DropDownListFor(m => m.UserID, (IEnumerable<SelectListItem>)ViewData["Users"], "-- Selecte User --", new { @class = "select2-me input-xlarge" })
+                        @Html.DropDownListFor(m => m.UserID, (IEnumerable<SelectListItem>)ViewData["Users"], "-- Selecte User --", new { @class = "input-xlarge",  @required = "required" })
                         @Html.ValidationMessageFor(model => model.UserID)
                     </div>
                 </div>
@@ -39,14 +39,14 @@
                 <div class="control-group">
                     <label for="textfield" class="control-label">Type</label>
                     <div class="controls">
-                        @Html.DropDownList("Type",new List<SelectListItem> { new SelectListItem { Text = "Send Application", Value = "Send Application" } }, new { @class = "select2-me input-xlarge" })
+                        @Html.DropDownList("Type",new List<SelectListItem> { new SelectListItem { Text = "Send Application", Value = "Send Application" } }, new { @class = "input-xlarge", @required = "required" })
                         @Html.ValidationMessageFor(model => model.UserID)
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="textfield" class="control-label">Send Method</label>
                     <div class="controls">
-                        @Html.DropDownListFor(m => m.SendViaID, (IEnumerable<SelectListItem>)ViewData["SendVia"], "-- Selecte Send Method --" , new { @class = "select2-me input-xlarge" })
+                        @Html.DropDownListFor(m => m.SendViaID, (IEnumerable<SelectListItem>)ViewData["SendVia"], "-- Selecte Send Method --" , new { @class = "input-xlarge", @required = "required"})
                         @Html.ValidationMessageFor(model => model.UserID)
                     </div>
                 </div>

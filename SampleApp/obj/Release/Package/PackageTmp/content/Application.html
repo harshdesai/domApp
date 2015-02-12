@@ -1,181 +1,86 @@
-﻿<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> -->
-<html>
-<head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <title></title>
-    <meta name="GENERATOR" content="LibreOffice 4.0.5.2 (Linux)">
-    <meta name="AUTHOR" content="Shaul Rosenberg">
-    <meta name="CREATED" content="20150203;21350000">
-    <meta name="CHANGEDBY" content="Shaul Rosenberg">
-    <meta name="CHANGED" content="20150203;21420000">
-    <meta name="AppVersion" content="15.0000">
-    <meta name="DocSecurity" content="0">
-    <meta name="HyperlinksChanged" content="false">
-    <meta name="LinksUpToDate" content="false">
-    <meta name="ScaleCrop" content="false">
-    <meta name="ShareDoc" content="false">
-    <style type="text/css">
-        <!--
-        @page {
-            size: 8.5in 11in;
-            margin: 1in;
-        }
-
-        P {
-            margin-bottom: 0.08in;
-            direction: ltr;
-            widows: 2;
-            orphans: 2;
-        }
-        -->
-
-
-
-        .reg_name {
-            clear: both;
-            color: black;
-            float: left;
-            height: 28px;
-            margin-left: 10px;
-            margin-top: 10px;
-            text-align: left;
-            width: 230px;
-        }
-
-        .reg_bg {
-            float: left;
-            height: 24px;
-            margin-bottom: 7px;
-            margin-top: 10px;
-            width: 302px;
-        }
-
-        .reg_name1 {
-            color: black;
-            float: left;
-            height: 28px;
-            margin-left: 10px;
-            margin-top: 10px;
-            text-align: left;
-            width: 230px;
-        }
-    </style>
-</head>
-<body lang="en-US" dir="LTR">
-    <div style="margin: 0 auto; width: 90%">
-        <div width:"100%">
-            <div style="width:250px;float:left;">
-                 <img src="http://localhost:2587/img/application.gif">
-            </div>
-            <div style="float:left;">
-                   <font size="7" style="font-size: 54pt">Application</font>
-            </div>
-        </div>
-        <div style="clear:both;"></div>
-        <div style="width: 100%">
-            <div class="reg_name">
-                Last Name :
-            </div>
-            <div class="reg_bg">
-                 ##LastName##
-            </div>
-            <div class="reg_name">
-                First Name :
-            </div>
-            <div class="reg_bg">
-                 ##FirstName##
-            </div>
-            <div class="reg_name1">
-                Date of Birth
-            </div>
-             <div class="reg_bg">
-                 <!--##HusbandDateofBirth##-->_____/______/______
-            </div>
-              <div class="reg_name">
-                Wife First Name :
-            </div>
-            <div class="reg_bg">
-                 ##wifeFirstName##
-            </div>
-            <div class="reg_name1">
-                Date of Birth
-            </div>
-             <div class="reg_bg">
-                 <!--##WifeDateofBirth##-->_____/______/______
-            </div>
-              <div class="reg_name">
-                Maiden Name :
-            </div>
-            <div class="reg_bg">
-                 ##MaidenName##
-            </div>
-              <div class="reg_name1">
-                Date of Marriage :
-            </div>
-            <div class="reg_bg">
-                 <!--##MarriageDate##--> _____/______/______
-            </div>
-               <div class="reg_name">
-                Husband Social Security Number :
-            </div>
-            <div class="reg_bg">
-                 <!--##HusbandSocialSecNum##-->_________________________
-            </div>
-              <div class="reg_name1">
-                Wife Social Security Number :
-            </div>
-            <div class="reg_bg">
-                 <!--##WifeSocialSecNum##--> ___________________________
-            </div>
-             <div class="reg_name">
-                Home Phone Number :
-            </div>
-            <div class="reg_bg">
-                 ##HomePh##
-            </div>
-              <div class="reg_name1">
-                Fax Number :
-            </div>
-            <div class="reg_bg">
-                 <!--##FaxNum##--> ______________________
-            </div>
-             <div class="reg_name">
-                Husband Cell Number :
-            </div>
-            <div class="reg_bg">
-                 <!--##HusbandCellNum##--> ________________________________
-            </div>
-              <div class="reg_name1">
-                Wife Cell Number :
-            </div>
-            <div class="reg_bg">
-                 <!--##WifwCellNum##--> ___________________________
-            </div>
-              <div class="reg_name">
-                Husband Email :
-            </div>
-            <div class="reg_bg">
-                 ##HusbandEmail##
-            </div>
-              <div class="reg_name1">
-                Wife Email :
-            </div>
-            <div class="reg_bg">
-                 <!--##WifwEmail##-->_______________________
-            </div>
-              <div class="reg_name">
-                Best Time To Contact :
-            </div>
-            <div class="reg_bg">
-                 ______________________________________<!--##BestTime##-->
-            </div>
-              <div class="reg_name">
-                Home Address :
-            </div>
-            <div class="reg_bg">
-                 _________________________________________________________________________________________
-            </div>
-        </div>
-    </div>
+﻿<html>
+<body>
+    <table style="margin-left:40px;">
+        <tr>
+            <td>
+                <img src="http://domsample.azurewebsites.net/img/application.gif"></td>
+            <td>Application</td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td style="width:200px;">Last Name :</td>
+            <td>##LastName##</td>
+        </tr>
+        <tr>
+            <td>First Name :</td>
+            <td>##FirstName##</td>
+            <td>Date of Birth</td>
+            <td>
+                <!--##HusbandDateofBirth##-->
+                _____/______/______</td>
+        </tr>
+        <tr>
+            <td>Wife First Name :</td>
+            <td>##wifeFirstName##</td>
+            <td>Date of Birth</td>
+            <td>
+                <!--##WifeDateofBirth##-->
+                _____/______/______</td>
+        </tr>
+        <tr>
+            <td>Maiden Name :</td>
+            <td>##MaidenName##</td>
+            <td>Date of Marriage :</td>
+            <td>
+                <!--##MarriageDate##-->
+                _____/______/______</td>
+        </tr>
+        <tr>
+            <td>Husband Social Security Number :</td>
+            <td>
+                <!--##HusbandSocialSecNum##-->
+                ______________</td>
+            <td>Wife Social Security Number :</td>
+            <td>
+                <!--##WifeSocialSecNum##-->
+                _________________</td>
+        </tr>
+        <tr>
+            <td>Home Phone Number :</td>
+            <td>##HomePh##</td>
+            <td>Fax Number :</td>
+            <td>
+                <!--##FaxNum## -->
+                _________________</td>
+        </tr>
+        <tr>
+            <td>Husband Cell Number :</td>
+            <td>
+                <!--##HusbandCellNum##-->
+                ___________</td>
+            <td>Wife Cell Number :</td>
+            <td>
+                <!--##WifwCellNum## -->
+                ____________</td>
+        </tr>
+        <tr>
+            <td>Husband Email :</td>
+            <td>##HusbandEmail##</td>
+            <td>Wife Email :</td>
+            <td>
+                <!--##WifwEmail##-->
+                ___________</td>
+        </tr>
+        <tr>
+            <td>Best Time To Contact :</td>
+            <td>__________________________________</td>
+        </tr>
+        <tr>
+            <td>Home Address :
+            </td>
+            <td>_________________________________</td>
+        </tr>
+    </table>
 </body>
 </html>

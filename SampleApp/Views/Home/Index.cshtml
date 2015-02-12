@@ -3,44 +3,138 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<style>
+    .displaygridnone {
+        display: none !important;
+    }
+
+    .displaygridblock {
+        display: block !important;
+    }
+
+    #notify-wrapper {
+        width: 100%;
+        height: 0px;
+        left: 0;
+        top: 0;
+        text-align: center;
+        position: fixed;
+        z-index: 1001;
+    }
+
+
+    #notify {
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        margin: 9px;
+        padding: 8px 18px;
+        font-size: 12px;
+        display: inline-block;
+    }
+
+    .server-success {
+        background-color: #e8f7ed;
+        border: 1px solid #30b661;
+        color: #1BA84E;
+    }
+
+    .server-fail {
+        background-color: #e8f7ed;
+        border: 1px solid #30b661;
+        color: red;
+    }
+</style>
 <script src="~/js/d3/d3.min.js"></script>
 <script src="~/js/d3/d3pie.js"></script>
 <script>
     $(document).ready(function () {
+        GetGridList();
+        $(window).resize(function () {
+            GetGridList();
+        });
+
+        function GetGridList() {
+            var hight = $(window).height();
+            var width = $(window).width();
+            if (width > 500) {
+                //$("#rowchart").removeClass("displaygridnone");
+                $("#gridView").removeClass("displaygridnone");
+                $("#listView").removeClass("displaygridblock");
+                $("#gridView").addClass("displaygridblock");
+                $("#listView").addClass("displaygridnone");
+            }
+            else {
+                //$("#rowchart").addClass("displaygridnone");
+                $("#gridView").removeClass("displaygridblock");
+                $("#listView").removeClass("displaygridnone");
+                $("#listView").addClass("displaygridblock");
+                $("#gridView").addClass("displaygridnone");
+            }
+        }
+
         $("#patient").addClass("active")
 
-        $(".delete").click(function (e) {
-            var result = confirm("Are you Want to Delete Actor?");
-            if (result == false) {
-                e.preventDefault();
-            }
-        });
+        //$(".delete").click(function (e) {
+        //    var result = confirm("Are you Want to Delete Pateint?");
+        //    if (result == false) {
+        //        e.preventDefault();
+        //    }
+        //    else {
+
+        //    }
+
+        //});
+
         setTimeout(function () {
-            $(".msg").hide(500);
-        },
-            5000
-        );
+            $("#notify").hide(300);
+        }, 5000);
     });
 
     function newPatient() {
         window.location.href = "/Home/Create";
     }
+
+    function AjaxBegin() {
+        $('#progress').show();
+
+    }
+    function AjaxComplete(id) {
+        $(id).remove();
+    }
+    function AjaxFailure(ajaxContext) {
+        //var response = ajaxContext.responseText;
+    }
+
+    function OnSuccess(data) {
+        //debugger;
+        //$("#notify").addClass("server-success");
+        //$("#notify").attr("display","block");
+        //$("#progress").hide();
+    }
+
 </script>
-<div class="row-fluid">
-     <div class="span6">
+<div id="notify-wrapper">
+    <span id="notify" style="display: none;">
+        <span id="notify-msg"></span>
+    </span>
+</div>
+<div class="row-fluid" id="rowchart">
+    <div class="span6">
         <div id="categoey"></div>
     </div>
     <div class="span6">
-        <div id="applicationstatus"></div>
+        <div id="applicationstatus" style="width: 100%"></div>
     </div>
 </div>
 <div class="row-fluid">
-    <div class="span12">
+    <div class="span12" id="gridView">
         <div class="box box-color box-bordered">
             <div class="box-title">
                 <h3>
                     <i class="icon-table"></i>Pateint List
-				</h3>
+                </h3>
                 <div class="actions">
                     <a class="btn" href="#" onclick="newPatient()">
                         <i class="icon-plus-sign"></i>
@@ -51,7 +145,10 @@
             <div class="box-content nopadding">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped dataTable table-bordered table-hover dataTables dataTable-scroll-x">
+                        <div id="progress" style="display: none;">
+                            <img src="@Url.Content("~/css/plugins/dynatree/loading.gif")" alt="" />
+                        </div>
+                        <table class="table table-condensed table-striped table-hover no-margin">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -85,10 +182,20 @@
                             <tbody>
                                 @for (int i = 0; i < Model.Count(); i++)
                                 {
-                                    <tr class="@string.Format("{0}", (i % 2) == 0 ? "odd" : "even")">
+                                    <tr class="@string.Format("{0}", (i % 2) == 0 ? "odd" : "even")" id="tr_grid_@Model[i].PatientID">
                                         <td>
-                                            @Html.ActionLink("Edit", "Create", new { id = Model[i].PatientID }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = Model[i].PatientID }, new { @class = "delete" })
+                                            <a href="/Home/Create/@Model[i].PatientID" class="btn" rel="tooltip" title="Edit"><i class="icon-edit"></i></a>
+                                            @Ajax.ActionLink("Delete", "Delete", new { id = @Model[i].PatientID }, new AjaxOptions
+                                       {
+                                           HttpMethod = "Delete",
+                                           Confirm = "Are you sure you want delete this " + @Model[i].FirstName + " " + @Model[i].LastName + " record",
+                                           LoadingElementId = "progress",
+                                           OnBegin = "AjaxBegin",
+                                           OnComplete = string.Format("AjaxComplete(tr_grid_{0});", @Model[i].PatientID),
+                                           OnFailure = "AjaxFailure",
+                                           OnSuccess = "OnSuccess"
+                                       })
+                                            @*<a href="/Home/Delete/@Model[i].PatientID" class="btn" rel="tooltip" title="Delete"><i class="icon-remove"></i></a>*@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => modelItem[i].FirstName)
@@ -123,67 +230,124 @@
             </div>
         </div>
     </div>
+    <div class="span12" id="listView">
+        <div class="box box-color box-bordered">
+            <div class="box-title">
+                <h3><i class="icon-user"></i>Pateint List</h3>
+                <div class="actions">
+                    <a class="btn" href="#" onclick="newPatient()">
+                        <i class="icon-plus-sign"></i>
+                        Add Patient
+                    </a>
+                </div>
+            </div>
+            <div class="box-content nopadding scrollable" data-height="300" data-visible="true">
+                <table class="table table-user table-nohead">
+                    <tbody>
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            <tr>
+                                <td class='user'>@Html.ActionLink(Model[i].FirstName + " " + Model[i].LastName, "Create", new { id = Model[i].PatientID })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     $(function () {
+        $(window).resize(function () {
+            resizePies();
+        });
+        var _height = $("#categoey").parent().width();
+        var _width = $("#categoey").parent().width();
+
         $.get("/Home/GetCategoryByPateintGroup", function (data) {
-            var CategoryData = JSON.parse(data);
-            var catContent = [];
-            var appStatusContent = [];
-            for (var i = 0 ; i < CategoryData.length; i++) {
-                var cat = CategoryData[i];
-                var index = catContent.map(function (c) { return c.label; }).indexOf(cat.Catagory.CatagoryName);
-                if (index == -1) {
-                    catContent.push({ label: cat.Catagory.CatagoryName, value: 1 });
-                }
-                else {
-                    catContent[index].value++;
-                }
+         
+                var CategoryData = JSON.parse(data);
+                var catContent = [];
+                var appStatusContent = [];
+                for (var i = 0 ; i < CategoryData.length; i++) {
+                    var cat = CategoryData[i];
+                    var index = catContent.map(function (c) { return c.label; }).indexOf(cat.Catagory.CatagoryName);
+                    if (index == -1) {
+                        catContent.push({ label: cat.Catagory.CatagoryName, value: 1 });
+                    }
+                    else {
+                        catContent[index].value++;
+                    }
 
-                index = appStatusContent.map(function (c) { return c.label; }).indexOf(cat.ApplicationStatu.ApplicationName);
-                if (index == -1) {
-                    appStatusContent.push({ label: cat.ApplicationStatu.ApplicationName, value: 1 });
-                }
-                else {
-                    appStatusContent[index].value++;
-                }
-            }
-
-            var categoey = new d3pie("categoey", {
-                data: {
-                    content: catContent
-                },
-                tooltips: {
-                    enabled: true,
-                    type: "placeholder",
-                    string: "{label}: {percentage}% ({value})",
-                    placeholderParser: function (index, data) {
-                        data.label = data.label + "!";
-                        data.percentage = data.percentage.toFixed(2);
-                        data.value = data.value.toFixed(5);
+                    index = appStatusContent.map(function (c) { return c.label; }).indexOf(cat.ApplicationStatu.ApplicationName);
+                    if (index == -1) {
+                        appStatusContent.push({ label: cat.ApplicationStatu.ApplicationName, value: 1 });
+                    }
+                    else {
+                        appStatusContent[index].value++;
                     }
                 }
-            });
 
-            var applicationstatus = new d3pie("applicationstatus", {
-                data: {
-                    content: appStatusContent
-                },
-                tooltips: {
-                    enabled: true,
-                    type: "placeholder",
-                    string: "{label}: {percentage}% ({value})",
-                    placeholderParser: function (index, data) {
-                        data.label = data.label + "!";
-                        data.percentage = data.percentage.toFixed(2);
-                        data.value = data.value.toFixed(5);
+                categoey = new d3pie("categoey", {
+                    data: {
+                        content: catContent
+                    },
+                    size: {
+                        canvasHeight: _height,
+                        canvasWidth: _width,
+                        pieInnerRadius: "0%",
+                        pieOuterRadius: null
+                    },
+                    tooltips: {
+                        enabled: true,
+                        type: "placeholder",
+                        string: "{label}: {percentage}% ({value})",
+                        placeholderParser: function (index, data) {
+                            data.label = data.label + "!";
+                            data.percentage = data.percentage.toFixed(2);
+                            data.value = data.value.toFixed(5);
+                        }
                     }
-                }
-            });
+                });
+
+
+
+                applicationstatus = new d3pie("applicationstatus", {
+                    data: {
+                        content: appStatusContent
+                    },
+                    size: {
+                        canvasHeight: _height,
+                        canvasWidth: _width,
+                        pieInnerRadius: "0%",
+                        pieOuterRadius: null
+                    },
+                    tooltips: {
+                        enabled: true,
+                        type: "placeholder",
+                        string: "{label}: {percentage}% ({value})",
+                        placeholderParser: function (index, data) {
+                            data.label = data.label + "!";
+                            data.percentage = data.percentage.toFixed(2);
+                            //data.value = data.value.toFixed(5);
+                        }
+                    }
+                });
+
         })
     });
 
-    
+    function resizePies() {
+        if (applicationstatus && categoey) {
+            var _height = $("#categoey").parent().width();
+            var _width = $("#categoey").parent().width();
+            applicationstatus.options.size.canvasWidth = _height;
+            applicationstatus.options.size.canvasHeight = _width;
+            categoey.options.size.canvasWidth = _height;
+            categoey.options.size.canvasHeight = _width;
+            categoey.redraw();
+            applicationstatus.redraw();
 
-    
+        }
+    }
 </script>

@@ -13,7 +13,6 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.Razor.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.WebPages.Deployment.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.WebPages.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.WebPages.Razor.dll
-F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\EO.Pdf.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\EntityFramework.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SampleApp.BLL.pdb
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SampleApp.Entity.pdb
@@ -31,3 +30,7 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\EntityFramework.xml
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\obj\Release\SampleApp.csprojResolveAssemblyReference.cache
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\obj\Release\SampleApp.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\obj\Release\SampleApp.pdb
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\Microsoft.Web.Administration.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\iTextSharp.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SendGrid.SmtpApi.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SendGridMail.dll

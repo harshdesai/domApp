@@ -6,3 +6,5 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\bin\Release\Entity
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\obj\Release\SampleApp.Entity.csprojResolveAssemblyReference.cache
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\obj\Release\SampleApp.Entity.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\obj\Release\SampleApp.Entity.pdb
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\bin\Release\SendGrid.SmtpApi.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.Entity\bin\Release\SendGridMail.dll

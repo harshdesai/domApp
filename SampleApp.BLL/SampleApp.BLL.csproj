@@ -41,6 +41,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SampleApp\dll\EO.Web.dll</HintPath>
     </Reference>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -50,6 +54,12 @@
     </Reference>
     <Reference Include="Newtonsoft.JsonResult">
       <HintPath>..\packages\Newtonsoft.JsonResult.1.0.5369.19299\lib\net40\Newtonsoft.JsonResult.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.2.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGridMail">
+      <HintPath>..\packages\Sendgrid.5.1.0\lib\SendGridMail.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -62,6 +72,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>

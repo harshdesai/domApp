@@ -62,11 +62,20 @@ namespace SampleApp.BLL.Repository
                         {
                             ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                         });
+
             return result;
         }
 
         public string DeletePatient(int pateintID)
         {
+            List<SampleApp.Entity.Task> taskList = _entity.Tasks.Where(a => a.PatientID == pateintID).ToList();
+            if (taskList != null)
+            {
+                foreach (SampleApp.Entity.Task item in taskList) {
+                    _entity.Tasks.Remove(item);
+                }
+                _entity.SaveChanges();
+            }
             Patient patient = _entity.Patients.Find(pateintID);
             _entity.Patients.Remove(patient);
             _entity.SaveChanges();

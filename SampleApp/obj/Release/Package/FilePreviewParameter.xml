@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="domSample" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\Dot\ Net\ Applications\\Shaul\ Rosenberg\\demo\\SampleApp\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\Dot\ Net\ Applications\\Shaul\ Rosenberg\\demo\\SampleApp\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="SampleAppEntities-Web.config Connection String" description="" value="metadata=res://*/SampleApp.csdl|res://*/SampleApp.ssdl|res://*/SampleApp.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:j2gfa50y2j.database.windows.net,1433;initial catalog=SampleApp;user id=sampleapp@j2gfa50y2j;password=Aa123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\Dot\ Net\ Applications\\Shaul\ Rosenberg\\demo\\SampleApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SampleAppEntities']/@connectionString" />
+  </parameter>
+</parameters>

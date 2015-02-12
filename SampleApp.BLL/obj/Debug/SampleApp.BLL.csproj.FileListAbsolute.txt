@@ -29,10 +29,15 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\SampleApp.B
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\SampleApp.BLL.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\SampleApp.BLL.pdb
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EntityFramework.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EO.Pdf.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EO.Web.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\itextsharp.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\Microsoft.Web.Infrastructure.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\Newtonsoft.Json.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\Newtonsoft.JsonResult.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\SampleApp.Entity.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\SendGrid.SmtpApi.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\SendGridMail.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.Helpers.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.Mvc.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.Razor.dll
@@ -50,5 +55,7 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.WebPages.Razor.xml
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Debug\SampleApp.BLL.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Debug\SampleApp.BLL.pdb
-F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EO.Pdf.dll
-F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\EO.Web.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.Http.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Net.Http.Formatting.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Web.Http.xml
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Debug\System.Net.Http.Formatting.xml

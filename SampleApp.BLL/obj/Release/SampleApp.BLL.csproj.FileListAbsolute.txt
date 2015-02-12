@@ -26,3 +26,10 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\System.We
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Release\SampleApp.BLL.csprojResolveAssemblyReference.cache
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Release\SampleApp.BLL.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\obj\Release\SampleApp.BLL.pdb
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\iTextSharp.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\SendGrid.SmtpApi.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\SendGridMail.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\System.Web.Http.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\System.Net.Http.Formatting.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\System.Web.Http.xml
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp.BLL\bin\Release\System.Net.Http.Formatting.xml

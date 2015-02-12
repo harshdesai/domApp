@@ -33,10 +33,14 @@ F:\Dot Net Applications\Shaul Rosenberg\SampleAppAPI\SampleApp\bin\EntityFramewo
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\obj\Debug\SampleApp.csprojResolveAssemblyReference.cache
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SampleApp.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SampleApp.pdb
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\iTextSharp.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\Microsoft.Web.Administration.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\Microsoft.Web.Infrastructure.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\Newtonsoft.Json.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SampleApp.BLL.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SampleApp.Entity.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SendGrid.SmtpApi.dll
+F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\SendGridMail.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Net.Http.Formatting.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.Helpers.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.Http.dll
@@ -62,4 +66,3 @@ F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\System.Web.WebPages.R
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\EntityFramework.xml
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\obj\Debug\SampleApp.dll
 F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\obj\Debug\SampleApp.pdb
-F:\Dot Net Applications\Shaul Rosenberg\demo\SampleApp\bin\EO.Pdf.dll

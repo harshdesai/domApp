@@ -79,14 +79,14 @@
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Category</label>
                                 <div class="controls">
-                                    @Html.DropDownListFor(m => m.CatagoryId, (IEnumerable<SelectListItem>)ViewData["Category"], "-- Selecte Category --", new { @class = "select2-me input-xlarge", @data_rule_required = "true" })
+                                    @Html.DropDownListFor(m => m.CatagoryId, (IEnumerable<SelectListItem>)ViewData["Category"], "-- Selecte Category --", new { @class = "input-xlarge", @data_rule_required = "true" })
                                     @Html.ValidationMessageFor(model => model.CatagoryId)
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="textfield" class="control-label">Application Status</label>
                                 <div class="controls">
-                                    @Html.DropDownListFor(m => m.ApplicationStatusID, (IEnumerable<SelectListItem>)ViewData["ApplicationStatus"], "-- Select ApplicationStatus --", new { @class = " select2-me input-xlarge" })
+                                    @Html.DropDownListFor(m => m.ApplicationStatusID, (IEnumerable<SelectListItem>)ViewData["ApplicationStatus"], "-- Select ApplicationStatus --", new { @class = "input-xlarge", @data_rule_required = "true" })
                                     @Html.ValidationMessageFor(model => model.CatagoryId)
                                 </div>
                             </div>

@@ -39,10 +39,18 @@ namespace SampleApp.Controllers
             return View(_pateintRepository.GetPatient());
         }
 
-        public ActionResult Delete(int id = 0)
+        [HttpDelete]
+        public string Delete(int id = 0)
         {
-            _pateintRepository.DeletePatient(id);
-            return RedirectToAction("Index");
+            try
+            {
+                _pateintRepository.DeletePatient(id);
+                return "Delete Successfull!!";
+            }
+            catch
+            {
+                return "Can not delete this time!!";
+            }
         }
 
         // GET: /Actor/Create
@@ -122,7 +130,10 @@ namespace SampleApp.Controllers
         public JsonResult GetCategoryByPateintGroup()
         {
             string data = _pateintRepository.GetPatientJson();
-            return Json(data ,JsonRequestBehavior.AllowGet);
+            var jsonResult = Json(data, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+            //return Json(data, JsonRequestBehavior.AllowGet);
         }
     }
 }
