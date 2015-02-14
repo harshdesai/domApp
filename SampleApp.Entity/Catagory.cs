@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SampleApp.Entity
+namespace bomSampleApp.Entity
 {
     using System;
     using System.Collections.Generic;

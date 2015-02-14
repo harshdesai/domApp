@@ -1,4 +1,4 @@
-﻿using SampleApp.Entity;
+﻿using bomSampleApp.Entity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,8 +19,8 @@ using iTextSharp.text.html.simpleparser;
 using System.Web.Mvc;
 using SendGrid;
 using System.Net;
-using System.Web.Http;
-namespace SampleApp.BLL.Common
+
+namespace bomSampleApp.BLL.Common
 {
     public class Helper
     {

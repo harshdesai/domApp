@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace MiniFacts.BLL.Common
+namespace bomSampleApp.BLL.Common
 {
     public class Utility
     {

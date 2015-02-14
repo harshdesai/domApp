@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SampleApp.BLL.Interface;
-using SampleApp.Entity;
+using bomSampleApp.BLL.Interface;
+using bomSampleApp.Entity;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using SampleApp.BLL.Common;
+using bomSampleApp.BLL.Common;
 using Newtonsoft.JsonResult;
-namespace SampleApp.BLL.Repository
+namespace bomSampleApp.BLL.Repository
 {
     public class PatientRepository : IPatientRepository
     {
@@ -68,10 +68,10 @@ namespace SampleApp.BLL.Repository
 
         public string DeletePatient(int pateintID)
         {
-            List<SampleApp.Entity.Task> taskList = _entity.Tasks.Where(a => a.PatientID == pateintID).ToList();
+            List<bomSampleApp.Entity.Task> taskList = _entity.Tasks.Where(a => a.PatientID == pateintID).ToList();
             if (taskList != null)
             {
-                foreach (SampleApp.Entity.Task item in taskList) {
+                foreach (bomSampleApp.Entity.Task item in taskList) {
                     _entity.Tasks.Remove(item);
                 }
                 _entity.SaveChanges();

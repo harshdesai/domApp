@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SampleApp.BLL.Interface;
-using SampleApp.BLL.Repository;
-using SampleApp.Entity;
+using bomSampleApp.BLL.Interface;
+using bomSampleApp.BLL.Repository;
+using bomSampleApp.Entity;
 using System.Collections;
-namespace SampleApp.Controllers
+namespace bomSampleApp.Controllers
 {
     public class UserController : Controller
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{1BBD7792-542A-4860-AEB8-07D598B80129}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleApp.Entity</RootNamespace>
+    <RootNamespace>bomSampleApp.Entity</RootNamespace>
     <AssemblyName>SampleApp.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

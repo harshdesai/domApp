@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SampleApp.Entity;
-namespace SampleApp.BLL.Interface
+using bomSampleApp.Entity;
+namespace bomSampleApp.BLL.Interface
 {
     public interface ITaskRepository
     {

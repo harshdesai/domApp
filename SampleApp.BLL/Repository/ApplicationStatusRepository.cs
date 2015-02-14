@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SampleApp.BLL.Interface;
-using SampleApp.Entity;
-namespace SampleApp.BLL.Repository
+using bomSampleApp.BLL.Interface;
+using bomSampleApp.Entity;
+namespace bomSampleApp.BLL.Repository
 {
     public class ApplicationStatusRepository : IApplicationStatusRepository
     {

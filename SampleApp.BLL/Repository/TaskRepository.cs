@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SampleApp.BLL.Interface;
-using SampleApp.Entity;
-namespace SampleApp.BLL.Repository
+using bomSampleApp.BLL.Interface;
+using bomSampleApp.Entity;
+namespace bomSampleApp.BLL.Repository
 {
     public class TaskRepository : ITaskRepository
     {
@@ -15,19 +15,19 @@ namespace SampleApp.BLL.Repository
         {
             _entity = new SampleAppEntities();
         }
-        public List<SampleApp.Entity.Task> GetTasks()
+        public List<bomSampleApp.Entity.Task> GetTasks()
         {
             throw new NotImplementedException();
         }
 
-        public List<SampleApp.Entity.Task> GetTasksByUserID()
+        public List<bomSampleApp.Entity.Task> GetTasksByUserID()
         {
             throw new NotImplementedException();
         }
 
-        public int SaveTasks(SampleApp.Entity.Task task)
+        public int SaveTasks(bomSampleApp.Entity.Task task)
         {
-            SampleApp.Entity.Task taskFromDB = new SampleApp.Entity.Task();
+            bomSampleApp.Entity.Task taskFromDB = new bomSampleApp.Entity.Task();
             if (task.TaskID > 0)
             {
                 taskFromDB = _entity.Tasks.Find(task.TaskID);

@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace MiniFacts.BLL.Common
+namespace bomSampleApp.BLL.Common
 {
     public static class Constants
     {

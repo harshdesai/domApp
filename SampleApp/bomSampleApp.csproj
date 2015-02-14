@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleApp</RootNamespace>
+    <RootNamespace>bomSampleApp</RootNamespace>
     <AssemblyName>SampleApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
@@ -1269,13 +1269,13 @@
     <Content Include="sass\_structure.scss" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp.BLL\SampleApp.BLL.csproj">
+    <ProjectReference Include="..\SampleApp.BLL\bomSampleApp.BLL.csproj">
       <Project>{535af76a-8709-4059-93a2-e63e97ae85fb}</Project>
-      <Name>SampleApp.BLL</Name>
+      <Name>bomSampleApp.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SampleApp.Entity\SampleApp.Entity.csproj">
+    <ProjectReference Include="..\SampleApp.Entity\bomSampleApp.Entity.csproj">
       <Project>{1bbd7792-542a-4860-aeb8-07d598b80129}</Project>
-      <Name>SampleApp.Entity</Name>
+      <Name>bomSampleApp.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

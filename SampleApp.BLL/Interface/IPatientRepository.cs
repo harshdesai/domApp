@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
-using SampleApp.Entity;
+using bomSampleApp.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleApp.BLL.Interface
+namespace bomSampleApp.BLL.Interface
 {
     public interface IPatientRepository
     {

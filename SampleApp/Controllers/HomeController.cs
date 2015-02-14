@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SampleApp.BLL;
-using SampleApp.BLL.Interface;
-using SampleApp.BLL.Repository;
-using SampleApp.Entity;
+using bomSampleApp.BLL;
+using bomSampleApp.BLL.Interface;
+using bomSampleApp.BLL.Repository;
+using bomSampleApp.Entity;
 using System.Collections;
-using SampleApp.BLL.Common;
+using bomSampleApp.BLL.Common;
 using System.IO;
 using Newtonsoft.Json.Linq;
-namespace SampleApp.Controllers
+namespace bomSampleApp.Controllers
 {
     public class HomeController : Controller
     {
